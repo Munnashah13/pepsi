@@ -103,7 +103,7 @@ export default function Contact() {
                 />
               </div>
 
-              <Button type="submit" variant="blue">
+              <Button type="submit" variant="primary">
                 Send Message
               </Button>
             </form>

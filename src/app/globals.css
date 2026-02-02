@@ -1,68 +1,128 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Import Synonym Font */
+@font-face {
+  font-family: 'Synonym';
+  src: url('/fonts/Synonym-Variable.woff2') format('woff2-variations'),
+       url('/fonts/Synonym-Variable.woff') format('woff-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
-  /* Pepsi Brand Colors */
-  --pepsi-blue: #004b93;
-  --pepsi-red: #e32934;
-  --pepsi-light-blue: #0063be;
-  --pepsi-dark-blue: #003366;
+@font-face {
+  font-family: 'Synonym';
+  src: url('/fonts/Synonym-Regular.woff2') format('woff2'),
+       url('/fonts/Synonym-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Synonym';
+  src: url('/fonts/Synonym-Medium.woff2') format('woff2'),
+       url('/fonts/Synonym-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Synonym';
+  src: url('/fonts/Synonym-Semibold.woff2') format('woff2'),
+       url('/fonts/Synonym-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Synonym';
+  src: url('/fonts/Synonym-Bold.woff2') format('woff2'),
+       url('/fonts/Synonym-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #f5f3f4;
+  --foreground: #0b090a;
+
+  /* New Color Palette from Coolors */
+  --color-dark-black: #0b090a;
+  --color-dark-gray: #161a1d;
+  --color-dark-red: #660708;
+  --color-cardinal: #a4161a;
+  --color-red: #ba181b;
+  --color-bright-red: #e5383b;
+  --color-warm-gray: #b1a7a6;
+  --color-light-gray: #d3d3d3;
+  --color-off-white: #f5f3f4;
+  --color-white: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: Synonym, var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 
-  /* Pepsi Brand Colors */
-  --color-pepsi-blue: var(--pepsi-blue);
-  --color-pepsi-red: var(--pepsi-red);
-  --color-pepsi-lightBlue: var(--pepsi-light-blue);
-  --color-pepsi-darkBlue: var(--pepsi-dark-blue);
+  /* Theme Colors */
+  --color-primary: var(--color-cardinal);
+  --color-primary-dark: var(--color-dark-red);
+  --color-accent: var(--color-bright-red);
+  --color-text: var(--color-dark-black);
+  --color-text-muted: var(--color-dark-gray);
+  --color-border: var(--color-light-gray);
+  --color-surface: var(--color-off-white);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: Synonym, system-ui, sans-serif;
+  font-weight: 400;
 }
 
-/* Custom Pepsi Utilities */
+/* Custom Utility Classes */
 @layer components {
-  .pepsi-gradient {
-    background: linear-gradient(to right, var(--pepsi-blue), var(--pepsi-light-blue));
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--color-cardinal), var(--color-bright-red));
   }
 
-  .pepsi-button {
-    background-color: var(--pepsi-blue);
-    color: white;
-    font-weight: 700;
+  .gradient-dark {
+    background: linear-gradient(135deg, var(--color-dark-black), var(--color-dark-gray));
+  }
+
+  .btn-primary {
+    background-color: var(--color-cardinal);
+    color: var(--color-white);
+    font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     transition: all 300ms ease;
     transform: scale(1);
   }
 
-  .pepsi-button:hover {
-    background-color: var(--pepsi-light-blue);
+  .btn-primary:hover {
+    background-color: var(--color-dark-red);
     transform: scale(1.05);
   }
 
-  .pepsi-button-red {
-    background-color: var(--pepsi-red);
-    color: white;
-    font-weight: 700;
+  .btn-secondary {
+    background-color: var(--color-bright-red);
+    color: var(--color-white);
+    font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     transition: all 300ms ease;
     transform: scale(1);
   }
 
-  .pepsi-button-red:hover {
-    background-color: #c21e2a;
+  .btn-secondary:hover {
+    background-color: var(--color-red);
     transform: scale(1.05);
   }
 }

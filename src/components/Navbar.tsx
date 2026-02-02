@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,36 +10,44 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
+    { href: "/services", label: "Products" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <nav className="pepsi-gradient shadow-lg sticky top-0 z-50">
+    <nav className="gradient-dark shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-[#0b090a]/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-white text-2xl font-bold">PEPSI</span>
+            <span className="text-[#f5f3f4] text-2xl font-bold tracking-tight">BEVERAGES</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white hover:text-pepsi-red transition-colors duration-300 font-medium"
+                className="text-[#f5f3f4] hover:text-[#e5383b] transition-colors duration-300 font-medium"
               >
                 {link.label}
               </Link>
             ))}
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="btn-primary text-sm">Sign In</button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden text-[#f5f3f4] focus:outline-none"
             aria-label="Toggle menu"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,12 +67,22 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 text-white hover:text-pepsi-red transition-colors"
+                className="block py-2 text-[#f5f3f4] hover:text-[#e5383b] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
+            <div className="mt-4 pt-4 border-t border-[#161a1d]">
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <button className="w-full btn-primary text-sm">Sign In</button>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <UserButton afterSignOutUrl="/" />
+              </SignedIn>
+            </div>
           </div>
         )}
       </div>

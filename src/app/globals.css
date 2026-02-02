@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Pepsi Brand Colors */
+  --pepsi-blue: #004b93;
+  --pepsi-red: #e32934;
+  --pepsi-light-blue: #0063be;
+  --pepsi-dark-blue: #003366;
 }
 
 @theme inline {
@@ -10,17 +16,53 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Pepsi Brand Colors */
+  --color-pepsi-blue: var(--pepsi-blue);
+  --color-pepsi-red: var(--pepsi-red);
+  --color-pepsi-lightBlue: var(--pepsi-light-blue);
+  --color-pepsi-darkBlue: var(--pepsi-dark-blue);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Custom Pepsi Utilities */
+@layer components {
+  .pepsi-gradient {
+    background: linear-gradient(to right, var(--pepsi-blue), var(--pepsi-light-blue));
+  }
+
+  .pepsi-button {
+    background-color: var(--pepsi-blue);
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 300ms ease;
+    transform: scale(1);
+  }
+
+  .pepsi-button:hover {
+    background-color: var(--pepsi-light-blue);
+    transform: scale(1.05);
+  }
+
+  .pepsi-button-red {
+    background-color: var(--pepsi-red);
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 300ms ease;
+    transform: scale(1);
+  }
+
+  .pepsi-button-red:hover {
+    background-color: #c21e2a;
+    transform: scale(1.05);
+  }
 }

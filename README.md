@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pepsi Website
+
+A modern, responsive website built with Next.js 14 and Tailwind CSS, featuring Pepsi's iconic branding.
+
+## Features
+
+- 🎨 Pepsi-themed design with brand colors (#004b93 blue, #e32934 red)
+- ⚡ Built with Next.js 14 App Router for optimal performance
+- 📱 Fully responsive design using Tailwind CSS
+- 🧩 Reusable component architecture
+- 🔍 SEO-optimized with Next.js metadata API
+- 🎯 TypeScript for type safety
+
+## Pages
+
+- **Home**: Landing page with hero section and feature cards
+- **About**: Company history and values
+- **Services**: Product offerings and business solutions
+- **Contact**: Contact form and business information
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd App
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is ready to deploy on Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Deploy with one click
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- **Framework**: Next.js 14
+- **Styling**: Tailwind CSS v4
+- **Language**: TypeScript
+- **Font**: Geist Sans & Geist Mono
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/              # App Router pages and layouts
+│   ├── layout.tsx    # Root layout with Navbar/Footer
+│   ├── page.tsx      # Home page
+│   ├── about/        # About page
+│   ├── services/     # Services page
+│   └── contact/      # Contact page
+├── components/       # Reusable React components
+│   ├── Navbar.tsx    # Navigation component
+│   ├── Footer.tsx    # Footer component
+│   ├── Hero.tsx      # Hero section
+│   ├── Button.tsx    # Reusable button
+│   └── Card.tsx      # Reusable card
+└── globals.css       # Global styles and Tailwind imports
+```
+
+## Brand Colors
+
+- **Pepsi Blue**: #004b93
+- **Pepsi Red**: #e32934
+- **Light Blue**: #0063be
+- **Dark Blue**: #003366
+
+## Scripts
+
+```bash
+# Development server
+npm run dev
+
+# Production build
+npm run build
+
+# Start production server
+npm start
+
+# Run linting
+npm run lint
+```
+
+## License
+
+This is a demo project for educational purposes.
+
+## Contributing
+
+This is a demonstration project. Feel free to use it as a template for your own projects.
+
+---
+
+Built with ❤️ using [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com)
